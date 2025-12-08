@@ -83,64 +83,20 @@ describe('Arithmetic', function () {
                     done();
                 });
         });
+        it('adds with negative exponent', function (done) {
+            request.get('/arithmetic?operation=add&operand1=1.2e-5&operand2=-1.2e-5')
+                .expect(200)
+                .end(function (err, res) {
+                    expect(res.body).to.eql({ result: 0 });
+                    done();
+                });
+        });
     });
-    describe('Subtraction', function () {
-        it('subtracts two positive integers', function (done) {
-            request.get('/arithmetic?operation=subtract&operand1=42&operand2=21')
-                .expect(200)
-                .end(function (err, res) {
-                    expect(res.body).to.eql({ result: 21 });
-                    done();
-                });
-        });
-        it('subtracts a larger integer from a smaller integer', function (done) {
-            request.get('/arithmetic?operation=subtract&operand1=21&operand2=42')
-                .expect(200)
-                .end(function (err, res) {
-                    expect(res.body).to.eql({ result: -21 });
-                    done();
-                });
-        });
-        it('subtracts zero from an integer', function (done) {
-            request.get('/arithmetic?operation=subtract&operand1=42&operand2=0')
-                .expect(200)
-                .end(function (err, res) {
-                    expect(res.body).to.eql({ result: 42 });
-                    done();
-                });
-        });
-        it('subtracts a negative integer from a positive integer', function (done) {
-            request.get('/arithmetic?operation=subtract&operand1=21&operand2=-21')
-                .expect(200)
-                .end(function (err, res) {
-                    expect(res.body).to.eql({ result: 42 });
-                    done();
-                });
-        });
-        it('subtracts two negative integers', function (done) {
-            request.get('/arithmetic?operation=subtract&operand1=-21&operand2=-42')
-                .expect(200)
-                .end(function (err, res) {
-                    expect(res.body).to.eql({ result: 21 });
-                    done();
-                });
-        });
-        it('subtracts floating point numbers', function (done) {
-            request.get('/arithmetic?operation=subtract&operand1=5.5&operand2=3.2')
-                .expect(200)
-                .end(function (err, res) {
-                    expect(res.body).to.eql({ result: 2.3 });
-                    done();
-                });
-        });
-        it('subtracts with exponential notation', function (done) {
-            request.get('/arithmetic?operation=subtract&operand1=4.2e1&operand2=2.1e1')
-                .expect(200)
-                .end(function (err, res) {
-                    expect(res.body).to.eql({ result: 21 });
-                    done();
-                });
-        });
+
+// TODO: Challenge #1
+ 
+
+    describe('Multiplication', function () {
         it('multiplies two positive integers', function (done) {
             request.get('/arithmetic?operation=multiply&operand1=21&operand2=2')
                 .expect(200)
