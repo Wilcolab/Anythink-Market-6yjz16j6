@@ -1,6 +1,6 @@
-# Python Server
+# Task Server Project
 
-This project contains a FastAPI server implemented in Python. It provides two routes for managing a task list.
+This project contains two servers: a FastAPI server implemented in Python and an Express server implemented in Node.js. Both provide routes for managing a task list.
 
 ## Project Structure
 
@@ -14,11 +14,17 @@ The project has the following files and directories:
 
 - `python-server/Dockerfile`: This file is used to build a Docker image for the FastAPI server. It specifies the base image, copies the source code into the image, installs the dependencies, and sets the command to run the server.
 
+- `simple-express-server/index.js`: This file contains the implementation of the Express server.
+
+- `simple-express-server/package.json`: This file lists the dependencies for the Node.js server.
+
+- `simple-express-server/Dockerfile`: This file is used to build a Docker image for the Express server.
+
 - `docker-compose.yml`: This file is used to define and run multi-container Docker applications. It specifies the services to run, their configurations, and any dependencies between them.
 
 ## Getting Started
 
-To run the FastAPI server using Docker, follow these steps:
+To run the servers using Docker, follow these steps:
 
 - Build and start the Docker containers by running the following command:
 
@@ -26,13 +32,14 @@ To run the FastAPI server using Docker, follow these steps:
   docker compose up
   ```
 
-  This command will build the Docker image for the FastAPI server and start the containers defined in the `docker-compose.yml` file.
+  This command will build the Docker images for both servers and start the containers defined in the `docker-compose.yml` file.
 
-- The FastAPI server should now be running. You can access at port `8000`.
+- The FastAPI server (Python) should now be running on port `8000`.
+- The Express server (Node.js) should now be running on port `8001`.
 
 ## API Routes
 
-The FastAPI server provides the following API routes:
+Both servers provide the following API routes:
 
 - `POST /tasks`: Adds a task to the task list. The request body should contain the task details.
 
