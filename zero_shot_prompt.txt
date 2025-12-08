@@ -1,0 +1,23 @@
+/**
+ * Converts a string to snake_case.
+ * Handles spaces, hyphens, and camelCase.
+ *
+ * @param {string} str - The input string.
+ * @returns {string} The snake_case string.
+ */
+function toSnakeCase(str) {
+    if (!str) return '';
+
+    return str
+        // Insert underscore before capital letters in camelCase (e.g., camelCase -> camel_Case)
+        .replace(/([a-z])([A-Z])/g, '$1_$2')
+        // Replace spaces and hyphens with underscores
+        .replace(/[\s-]+/g, '_')
+        // Convert the whole string to lowercase
+        .toLowerCase();
+}
+
+// Example usage:
+// console.log(toSnakeCase("Hello World"));       // hello_world
+// console.log(toSnakeCase("camelCaseString"));   // camel_case_string
+// console.log(toSnakeCase("kebab-case-string")); // kebab_case_string
